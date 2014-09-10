@@ -12,6 +12,7 @@ install
 * download initial planet file into `planet/`
 * convert planet to `o5m` format: `bin/osmconvert planet/planet-latest.osm.pbf -o=planet.o5m`
 * edit `script/update-extracts.sh` and set BASEDIR to wherever you cloned this repo
+* edit the files in `conf/` to point to the right directories.
 
 use
 ===
