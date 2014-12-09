@@ -1,4 +1,5 @@
 #!/bin/bash
+echo 'starting run ===================================================================='
 date
 BASEDIR="/mnt/osm"
 PATH=/mnt/osm/bin:$PATH
@@ -16,6 +17,11 @@ date
 echo 'going to split into US and States (current)'
 date
 $BASEDIR/script/split-current.py
+# creating highway only PBFs
+echo 'going to create highway only PBFs'
+date
+mkdir -p $BASEDIR/tmp/pbf/us/highways-only
+$BASEDIR/script/extract-highways.sh $BASEDIR/tmp/pbf/us $BASEDIR/tmp/pbf/us/highways-only
 # convert to pbf
 #echo 'going to convert US extract to PBF'
 #date
@@ -30,5 +36,5 @@ echo 'moving everything in place'
 date
 rm -r $BASEDIR/srv/*
 mv $BASEDIR/tmp/pbf/* $BASEDIR/srv
-echo 'done'
 date
+echo 'done'

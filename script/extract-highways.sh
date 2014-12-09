@@ -11,5 +11,5 @@ for f in $FILES
         FILENAME=${FILENAME%%.*}
         OUTFILE="$OUTDIR/$FILENAME-highways.osm.pbf"
         echo $OUTFILE
-        /mnt/osm/bin/osmosis --rb $f --tf accept-ways highway=* --tf reject-relations --used-node --wb $OUTFILE
+        /mnt/osm/bin/osmosis --rb $f --tf accept-ways highway=\* --tf reject-relations --used-node --wb $OUTFILE
     done
