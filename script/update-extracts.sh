@@ -18,19 +18,10 @@ echo 'going to split into regions...'
 date
 $BASEDIR/script/split-current.py
 # creating highway only PBFs
-echo 'going to create highway only PBFs...'
-date
-mkdir -p $BASEDIR/tmp/pbf/us/highways-only
-$BASEDIR/script/extract-highways.sh $BASEDIR/tmp/pbf/us $BASEDIR/tmp/pbf/us/highways-only
-# convert to pbf
-#echo 'going to convert US extract to PBF'
+#echo 'going to create highway only PBFs for the US...'
 #date
-#./osmconvert $BASEDIR/planet/us.o5m -o=$BASEDIR/tmp/pbf/us.osm.pbf
-# split into states
-#echo 'going to split US extract to states'
-#date
-#mkdir -p $BASEDIR/tmp/pbf/states
-#for c in /mnt/osm/conf/*.conf;do $BASEDIR/bin/osm-history-splitter --hardcut $BASEDIR/tmp/pbf/us.osm.pbf $c;done
+#mkdir -p $BASEDIR/tmp/pbf/us/highways-only
+#$BASEDIR/script/extract-highways.sh $BASEDIR/tmp/pbf/us $BASEDIR/tmp/pbf/us/highways-only
 # copy
 echo 'moving everything in place...'
 date
