@@ -65,6 +65,12 @@ printlock = threading.Lock()
 q = Queue.Queue(0)
 finished = []
 
+def append_date(basename):
+    import time
+    return "{}-{}".format(
+        basename,
+        time.strftime("%y%m%d"))
+
 def process(tasks):
     (source, foo) = os.path.split(tasks[0])
     if(source == ""):
@@ -93,7 +99,7 @@ def process(tasks):
     (fp, configfile) = tempfile.mkstemp()
     os.write(fp, "# auto-generated\n")
     for task in tasks:
-        dest = os.path.join(outputDir, task + dataType)
+        dest = os.path.join(outputDir, append_date(task) + dataType)
         dirname = os.path.dirname(dest)
 
         if not os.path.exists(dirname):
