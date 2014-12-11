@@ -8,7 +8,7 @@ install
 
 * clone this repo to wherever you have lots of space (150GB at least)
 * install `osmium` and `osm-history-splitter`
-* create symlink to `osm-history-splitter` in `bin/`
+* create symlink to `osm-history-splitter` and `osmjs` in `bin/`
 * download initial planet file into `planet/`
 * convert planet to `o5m` format: `bin/osmconvert planet/planet-latest.osm.pbf -o=planet.o5m`
 * edit `script/update-extracts.sh` and set BASEDIR to wherever you cloned this repo
