@@ -10,7 +10,6 @@ install
 * install [`osmium`](https://github.com/joto/osmium) and [`osm-history-splitter`](https://github.com/MaZderMind/osm-history-splitter)
 * create symlink to `osm-history-splitter` and `osmjs` in `bin/`
 * download initial planet file into `planet/`: `wget -O planet/planet.osm.pbf  http://planet.openstreetmap.org/pbf/planet-latest.osm.pbf`
-* convert planet to `o5m` format: `bin/osmconvert planet/planet.osm.pbf -o=planet.o5m`
 * edit `script/update-extracts.sh` and set BASEDIR to wherever you cloned this repo
 * edit the files in `conf/` to point to the right directories.
 
