@@ -1,7 +1,7 @@
 osm-us-extracts
 ===============
 
-keep a set of US and US state OSM PBF extracts up to date
+keep a set of OSM PBF extracts up to date, similar to download.geofabrik.de
 
 install
 =======
@@ -11,7 +11,6 @@ install
 * create symlink to `osm-history-splitter` and `osmjs` in `bin/`
 * download initial planet file into `planet/`: `wget -O planet/planet.osm.pbf  http://planet.openstreetmap.org/pbf/planet-latest.osm.pbf`
 * edit `script/update-extracts.sh` and set BASEDIR to wherever you cloned this repo
-* edit the files in `conf/` to point to the right directories.
 
 use
 ===
