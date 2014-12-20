@@ -1,8 +1,8 @@
 #!/bin/bash
 echo 'starting run ===================================================================='
 date
-BASEDIR="/mnt/osm"
-PATH=/mnt/osm/bin:$PATH
+BASEDIR="/data1/extracts"
+PATH=$BASEDIR/bin:$PATH
 # move new file to old
 cd $BASEDIR/bin
 # make the current planet old

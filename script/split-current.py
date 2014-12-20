@@ -8,8 +8,11 @@ import random, time
 # used to test mutoprocess handling
 simulate = False
 
+# the base directory we are working from 
+baseDir = "/data1/extracts"
+
 # the directory to scan for clipbounds-files
-clipDir = "/mnt/osm/poly"
+clipDir = os.path.join(baseDir, "poly")
 
 # the type of clipbounds to use (OSM or POLY)
 clipType = "POLY" # OSM
@@ -35,7 +38,7 @@ dataType = ".osm.pbf"
 # when creating the last bit-vector takes more time then creating the
 # first vectors, the os starts to swap the bit-vectors out. reduce the
 # number by one and try again
-maxParallel = 8
+maxParallel = 128
 
 # the number of parallel extracts is determined by the available memory.
 # when all bit-vectory fit into the RAM, runtime is mostly a matter of CPU.
@@ -43,19 +46,19 @@ maxParallel = 8
 # point-in-polygon tests about your cores. This increases the number of
 # disk-seeks, because multiple processes tries to access the same file,
 # but in most cases this should not hit the performance much.
-maxProcesses = 2
+maxProcesses = 32
 
 # on my PC (4 GB, 4 Cores) i achived best results when doing 8 extracts
 # in parallel with 4 processes.
 
 # the source file
-inputFile = "/mnt/osm/planet/planet.osm.pbf"
+inputFile = os.path.join(baseDir, "planet/planet.osm.pbf")
 
 # the directory to place the generated extracts into
-outputDir = "/mnt/osm/tmp/pbf"
+outputDir = os.path.join(baseDir, "tmp/pbf")
 
 # path to the compiled splitter
-splitterCommand = "/mnt/osm/bin/osm-history-splitter"
+splitterCommand = os.path.join(baseDir, "bin/osm-history-splitter")
 
 if(sys.argv.count("--plan") > 0):
     maxParallel = maxParallel / maxProcesses
@@ -78,7 +81,7 @@ def process(tasks):
     else:
         if finished.count(source) == 0:
             printlock.acquire()
-            print "trying to split from", source, "which is not finished yet, re-queuing and sleeping 5 seconds"
+            #print "trying to split from", source, "which is not finished yet, re-queuing and sleeping 5 seconds"
             printlock.release()
             q.put(tasks)
             time.sleep(5)
@@ -99,7 +102,7 @@ def process(tasks):
     (fp, configfile) = tempfile.mkstemp()
     os.write(fp, "# auto-generated\n")
     for task in tasks:
-        dest = os.path.join(outputDir, append_date(task) + dataType)
+        dest = os.path.join(outputDir,task + dataType)
         dirname = os.path.dirname(dest)
 
         if not os.path.exists(dirname):
