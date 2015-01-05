@@ -8,8 +8,14 @@ import random, time
 # used to test mutoprocess handling
 simulate = False
 
+# path to the osm-history-splitter command
+splitterCommand = "/usr/local/bin/osm-history-splitter"
+
+# You should not need to change anything below this line.
+# -------------------------------------------------------
+
 # the base directory we are working from 
-baseDir = "/data1/extracts"
+baseDir = sys.argv[1]
 
 # the directory to scan for clipbounds-files
 clipDir = os.path.join(baseDir, "poly")
@@ -56,9 +62,6 @@ inputFile = os.path.join(baseDir, "planet/planet.osm.pbf")
 
 # the directory to place the generated extracts into
 outputDir = os.path.join(baseDir, "tmp/pbf")
-
-# path to the compiled splitter
-splitterCommand = os.path.join(baseDir, "bin/osm-history-splitter")
 
 if(sys.argv.count("--plan") > 0):
     maxParallel = maxParallel / maxProcesses

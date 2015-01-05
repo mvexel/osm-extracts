@@ -43,4 +43,4 @@ if __name__ == "__main__":
         basename = filename[:-len(extension)]
         dest = os.path.join(path, append_date(basename) + extension)
         print "going to rename {orig} to {dest}".format(orig=orig, dest=dest)
-        #os.renames(orig, dest)
+        os.renames(orig, dest)
