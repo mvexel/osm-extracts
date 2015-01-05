@@ -10,7 +10,7 @@ import fnmatch
 dateFormat = "%y%m%d"
 
 def usage():
-    print("Usage: append_date.py srcdir destdir extension")
+    print("Usage: append_date.py srcdir .ext")
     sys.exit(1)
 
 def find_matches(directory):
