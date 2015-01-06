@@ -111,7 +111,8 @@ def process(tasks):
         if not os.path.exists(dirname):
             printlock.acquire()
             print "Creating", dirname
-            os.mkdir(dirname)
+            if not os.path.exists(dirname):
+                os.makedirs(dirname)
             printlock.release()
 
         os.write(fp, dest)
