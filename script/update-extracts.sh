@@ -29,7 +29,7 @@ $BASEDIR/script/append-date.py $BASEDIR/tmp/pbf .osm.pbf
 # move to web dir
 echo 'going to move everything in place...'
 date
-rsync -av $BASEDIR/tmp/pbf/ $BASEDIR/srv/
+rsync -av --min-size=131 $BASEDIR/tmp/pbf/ $BASEDIR/srv/
 rm -r $BASEDIR/tmp/pbf/*
 date
 echo '=== done ==='
