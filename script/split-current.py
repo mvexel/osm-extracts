@@ -8,14 +8,19 @@ import random, time
 # used to test mutoprocess handling
 simulate = False
 
-# path to the osm-history-splitter command
-splitterCommand = "/usr/local/bin/osm-history-splitter"
-
 # You should not need to change anything below this line.
 # -------------------------------------------------------
 
+if not len(sys.argv) == 3:
+    print("usage: split-current.py BASEDIR SPLITTERCOMMAND")
+    sys.exit(1)
+
 # the base directory we are working from 
 baseDir = sys.argv[1]
+
+# path to the osm-history-splitter command
+splitterCommand = sys.argv[2]
+
 
 # the directory to scan for clipbounds-files
 clipDir = os.path.join(baseDir, "poly")
