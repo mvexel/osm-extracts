@@ -4,7 +4,7 @@
 trap "exit" INT
 
 # base dir from arg
-BASE_DIR=$1
+BASE_DIR=$0
 EXTRACTS_DIR=$BASE_DIR/extracts
 
 # Install osmium requirements
