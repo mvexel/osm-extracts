@@ -12,9 +12,10 @@ You will need a beefy server (more cores = better) and lots of space (150GB at l
 * Run it on the target machine. You will need sudo rights.
 
 ``` bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/mvexel/osm-extracts/master/script/install.sh)" /extracts
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/mvexel/osm-extracts/master/script/install.sh)" [basedir]
 ```
-where `/extracts` is a place with lots of space.
+
+By default, this will install everything in `/extracts` but you can specify an optional `basedir` (ending in trailing slash) which will override this.
 
 * download initial planet file into `/extracts/planet/`: `wget -O /extracts/planet/planet.osm.pbf  http://planet.openstreetmap.org/pbf/planet-latest.osm.pbf`
 * edit `/extracts/script/update-extracts.sh` and set `$BASEDIR` to `/extracts` or wherever you installed this.

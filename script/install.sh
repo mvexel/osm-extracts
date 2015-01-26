@@ -4,8 +4,7 @@
 trap "exit" INT
 
 # base dir from arg, defaults to / so the default extracts dir is /extracts
-BASE_DIR=${0-/}
-EXTRACTS_DIR=$BASE_DIRextracts
+EXTRACTS_DIR=${0-/extracts}
 
 # Install osmium requirements
 sudo aptitude -yq update
