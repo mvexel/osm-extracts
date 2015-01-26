@@ -32,3 +32,6 @@ ln -s $EXTRACTS_DIR/external/osm-history-splitter/osm-history-splitter $EXTRACTS
 cd $EXTRACTS_DIR/bin
 hash osmconvert 2>/dev/null || wget -O - http://m.m.i24.cc/osmconvert.c | cc -x c - -lz -O3 -o osmconvert
 hash osmupdate 2>/dev/null || wget -O - http://m.m.i24.cc/osmupdate.c | cc -x c - -o osmupdate
+
+# Create empty log file
+touch $EXTRACTS_DIR/log/update-extracts.log
