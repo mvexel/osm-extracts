@@ -5,7 +5,7 @@ trap "exit" INT
 
 # base dir from arg
 BASE_DIR=$1
-EXTRACTS_DIR=$BASEDIR/extracts
+EXTRACTS_DIR=$BASE_DIR/extracts
 
 # Install osmium requirements
 sudo aptitude -yq install git zlib1g-dev libexpat1-dev libxml2-dev libgeos-dev libsparsehash-dev libprotobuf-dev protobuf-compiler libosmpbf-dev
@@ -25,6 +25,6 @@ make
 ln -s $EXTRACTS_DIR/lib/osm-history-splitter/osm-history-splitter $EXTRACTS_DIR/bin/osm-history-splitter
 
 # Get osmconvert and osmupdate
-cd EXTRACTS_DIR/bin
+cd $EXTRACTS_DIR/bin
 hash osmconvert 2>/dev/null || wget -O - http://m.m.i24.cc/osmconvert.c | cc -x c - -lz -O3 -o osmconvert
 hash osmupdate 2>/dev/null || wget -O - http://m.m.i24.cc/osmupdate.c | cc -x c - -o osmupdate
