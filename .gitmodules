@@ -1,0 +1,6 @@
+[submodule "external/osmium"]
+	path = external/osmium
+	url = https://github.com/joto/osmium
+[submodule "external/osm-history-splitter"]
+	path = external/osm-history-splitter
+	url = https://github.com/MaZderMind/osm-history-splitter
