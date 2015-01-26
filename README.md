@@ -32,7 +32,8 @@ server {
                 try_files $uri $uri/ =404;
                 autoindex on;
         }
-}```
+}
+```
 
 use
 ===
