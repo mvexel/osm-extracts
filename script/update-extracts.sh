@@ -1,9 +1,10 @@
 #!/bin/bash
 
 # CHANGE THIS TO WHERE YOUR CLONED THIS REPO
-BASEDIR="/Users/martijnv/dev/osm-extracts"
+BASEDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )"/.. && pwd )
 
 echo '=== starting run ==='
+echo 'base directory: $BASEDIR'
 date
 
 # make the current planet old
