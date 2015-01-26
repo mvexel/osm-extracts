@@ -18,9 +18,7 @@ if not len(sys.argv) == 3:
 # the base directory we are working from 
 baseDir = sys.argv[1]
 
-# path to the osm-history-splitter command
-splitterCommand = sys.argv[2]
-
+splitterCommand = os.path.join(baseDir, 'bin/osm-history-splitter')
 
 # the directory to scan for clipbounds-files
 clipDir = os.path.join(baseDir, "poly")
