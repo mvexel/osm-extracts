@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# exit on SIGINT
+trap "exit" INT
+
 # base dir from arg
 BASE_DIR=$1
 EXTRACTS_DIR=$BASEDIR/extracts
