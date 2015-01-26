@@ -18,7 +18,7 @@ where `/extracts` is a place with lots of space.
 
 * download initial planet file into `/extracts/planet/`: `wget -O /extracts/planet/planet.osm.pbf  http://planet.openstreetmap.org/pbf/planet-latest.osm.pbf`
 * edit `/extracts/script/update-extracts.sh` and set `$BASEDIR` to `/extracts` or wherever you installed this.
-* edit `/extracts/script/split-current.py` and set `splitterCommand` to the full path to `osm-history-splitter`. You may also want to tweak `maxParallel` and `maxProcesses` to match the number of cores and memory size on your machine, see the inline documentation.
+* edit `/extracts/script/split-current.py` and tweak `maxParallel` and `maxProcesses` to match the number of cores and memory size on your machine, see the inline documentation.
 
 use
 ===
