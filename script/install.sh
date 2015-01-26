@@ -23,7 +23,7 @@ sudo make install
 # Get osm-history-splitter
 cd $EXTRACTS_DIR/external/osm-history-splitter
 make
-ln -s $EXTRACTS_DIR/lib/osm-history-splitter/osm-history-splitter $EXTRACTS_DIR/bin/osm-history-splitter
+ln -s $EXTRACTS_DIR/external/osm-history-splitter/osm-history-splitter $EXTRACTS_DIR/bin/osm-history-splitter
 
 # Get osmconvert and osmupdate
 cd $EXTRACTS_DIR/bin
