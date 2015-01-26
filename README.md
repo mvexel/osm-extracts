@@ -19,7 +19,7 @@ By default, this will install everything in `/extracts` but you can specify an o
 
 * download initial planet file into `/extracts/planet/`: `wget -O /extracts/planet/planet.osm.pbf  http://planet.openstreetmap.org/pbf/planet-latest.osm.pbf`. (If you want to test the process quickly first, you can fake it by downloading a tiny, recent planet from geofabrik, for example Antarctica: `wget -O planet/planet.osm.pbf http://download.geofabrik.de/antarctica-latest.osm.pbf`.
 * edit `/extracts/script/split-current.py` and tweak `maxParallel` and `maxProcesses` to match the number of cores and memory size on your machine, see the inline documentation.
-* If you want to serve the resulting planet files on the web, you should configure a web server to expose `/extracts/srv`. Here is an nginx `location` example: 
+* If you want to serve the resulting planet files on the web, you should configure a web server to expose `/extracts/srv`. Here is a simple nginx example config: 
 
 ``` nginx
 server {
