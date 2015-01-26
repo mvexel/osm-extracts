@@ -4,7 +4,7 @@
 BASEDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )"/.. && pwd )
 
 echo '=== starting run ==='
-echo 'base directory: $BASEDIR'
+echo "base directory: $BASEDIR"
 date
 
 # make the current planet old
@@ -15,7 +15,7 @@ mv $BASEDIR/planet/planet.osm.pbf $BASEDIR/planet/planet_old.osm.pbf
 # update the planet
 echo 'going to update planet'
 date
-osmupdate  -t=$BASEDIR/tmp/osmupdate $BASEDIR/planet/planet_old.osm.pbf $BASEDIR/planet/planet.osm.pbf
+$BASEDIR/bin/osmupdate  -t=$BASEDIR/tmp/osmupdate $BASEDIR/planet/planet_old.osm.pbf $BASEDIR/planet/planet.osm.pbf
 
 # splitting
 echo 'going to split into regions...'
