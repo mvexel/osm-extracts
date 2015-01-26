@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # base dir from arg
-let BASE_DIR=$1
-let EXTRACTS_DIR=$BASEDIR/extracts
+BASE_DIR=$1
+EXTRACTS_DIR=$BASEDIR/extracts
 
 # Clone OSM Extracts repo
 if [ ! -d $EXTRACTS_DIR ]; then
