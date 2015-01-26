@@ -8,35 +8,6 @@ import random, time
 # used to test mutoprocess handling
 simulate = False
 
-# You should not need to change anything below this line.
-# -------------------------------------------------------
-
-if not len(sys.argv) == 3:
-    print("usage: split-current.py BASEDIR SPLITTERCOMMAND")
-    sys.exit(1)
-
-# the base directory we are working from 
-baseDir = sys.argv[1]
-
-splitterCommand = os.path.join(baseDir, 'bin/osm-history-splitter')
-
-# the directory to scan for clipbounds-files
-clipDir = os.path.join(baseDir, "poly")
-
-# the type of clipbounds to use (OSM or POLY)
-clipType = "POLY" # OSM
-clipExtension = ".poly" # .osm
-
-# the clipbounds are read from the directory and created in a hirachy, so
-#  clipbounds/europe.poly            is read from the planetfile
-#  clipbounds/asia.poly              is read from the planetfile
-#  clipbounds/europe/germany.poly    is read from the generated europe.osm.pbf
-#  clipbounds/europe/italy.poly      is read from the generated europe.osm.pbf
-#  clipbounds/foo/bar.poly           is read from the planetfile, because there was no foo.poly
-
-# the desired result datatype (.osm.pbf, .osh.pbf, .osm, .osh, ...)
-dataType = ".osm.pbf"
-
 # the maximum number of parallel running extracts
 # this is ( <your systems memory in GB> - 1) * 1024 / <size per extract>
 # where <size per extract> is 190 MB for Hardcut and 350 MB for Softcut
@@ -60,11 +31,40 @@ maxProcesses = 32
 # on my PC (4 GB, 4 Cores) i achived best results when doing 8 extracts
 # in parallel with 4 processes.
 
+# You should not need to change anything below this line.
+# -------------------------------------------------------
+
+if not len(sys.argv) == 3:
+    print("usage: split-current.py BASEDIR")
+    sys.exit(1)
+
+# the base directory we are working from 
+baseDir = sys.argv[1]
+
+splitterCommand = os.path.join(baseDir, 'bin/osm-history-splitter')
+
+# the directory to scan for clipbounds-files
+clipDir = os.path.join(baseDir, "poly")
+
 # the source file
 inputFile = os.path.join(baseDir, "planet/planet.osm.pbf")
 
 # the directory to place the generated extracts into
 outputDir = os.path.join(baseDir, "tmp/pbf")
+
+# the desired result datatype (.osm.pbf, .osh.pbf, .osm, .osh, ...)
+dataType = ".osm.pbf"
+
+# the type of clipbounds to use (OSM or POLY)
+clipType = "POLY" # OSM
+clipExtension = ".poly" # .osm
+
+# the clipbounds are read from the directory and created in a hirachy, so
+#  clipbounds/europe.poly            is read from the planetfile
+#  clipbounds/asia.poly              is read from the planetfile
+#  clipbounds/europe/germany.poly    is read from the generated europe.osm.pbf
+#  clipbounds/europe/italy.poly      is read from the generated europe.osm.pbf
+#  clipbounds/foo/bar.poly           is read from the planetfile, because there was no foo.poly
 
 if(sys.argv.count("--plan") > 0):
     maxParallel = maxParallel / maxProcesses
