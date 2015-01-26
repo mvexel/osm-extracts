@@ -34,7 +34,7 @@ maxProcesses = 32
 # You should not need to change anything below this line.
 # -------------------------------------------------------
 
-if not len(sys.argv) == 3:
+if not len(sys.argv) == 2:
     print("usage: split-current.py BASEDIR")
     sys.exit(1)
 
