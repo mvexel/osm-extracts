@@ -12,7 +12,7 @@ sudo aptitude -yq install make git zlib1g-dev libexpat1-dev libxml2-dev libgeos-
 
 # Clone OSM Extracts repo
 if [ ! -d $EXTRACTS_DIR ]; then
-    git clone https://github.com/mvexel/osm-extracts.git $EXTRACTS_DIR
+    git clone --recursive https://github.com/mvexel/osm-extracts.git $EXTRACTS_DIR
 fi
 
 # Get Osmium
