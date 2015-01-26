@@ -3,6 +3,9 @@
 # CHANGE THIS TO WHERE YOUR CLONED THIS REPO
 BASEDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )"/.. && pwd )
 
+# Add bin to path
+export PATH=$BASEDIR/bin:$PATH
+
 echo '=== starting run ==='
 echo "base directory: $BASEDIR"
 date
