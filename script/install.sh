@@ -8,7 +8,7 @@ BASE_DIR=$0
 EXTRACTS_DIR=$BASE_DIR/extracts
 
 # Install osmium requirements
-sudo aptitude -yq install make clang git zlib1g-dev libexpat1-dev libxml2-dev libgeos-dev libsparsehash-dev libprotobuf-dev protobuf-compiler libosmpbf-dev doxygen
+sudo aptitude -yq install make clang git libboost-test-dev zlib1g-dev libexpat1-dev libxml2-dev libgeos-dev libsparsehash-dev libprotobuf-dev protobuf-compiler libosmpbf-dev doxygen
 
 # Clone OSM Extracts repo
 if [ ! -d $EXTRACTS_DIR ]; then
