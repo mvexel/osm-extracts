@@ -3,9 +3,9 @@
 # exit on SIGINT
 trap "exit" INT
 
-# base dir from arg
-BASE_DIR=$0
-EXTRACTS_DIR=$BASE_DIR/extracts
+# base dir from arg, defaults to / so the default extracts dir is /extracts
+BASE_DIR=${0-/}
+EXTRACTS_DIR=$BASE_DIRextracts
 
 # Install osmium requirements
 sudo aptitude -yq update
@@ -14,6 +14,8 @@ sudo aptitude -yq install make clang git libboost-test-dev zlib1g-dev libexpat1-
 
 # Clone OSM Extracts repo
 if [ ! -d $EXTRACTS_DIR ]; then
+	sudo mkdir -p $EXTRACTS_DIR
+	sudo chown -R `whoami` $EXTRACTS_DIR
     git clone --recursive https://github.com/mvexel/osm-extracts.git $EXTRACTS_DIR
 fi
 
