@@ -17,8 +17,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/mvexel/osm-extracts/mast
 
 By default, this will install everything in `/extracts` but you can specify an optional `basedir` (ending in trailing slash) which will override this.
 
-* download initial planet file into `/extracts/planet/`: `wget -O /extracts/planet/planet.osm.pbf  http://planet.openstreetmap.org/pbf/planet-latest.osm.pbf`
-* edit `/extracts/script/update-extracts.sh` and set `$BASEDIR` to `/extracts` or wherever you installed this.
+* download initial planet file into `/extracts/planet/`: `wget -O /extracts/planet/planet.osm.pbf  http://planet.openstreetmap.org/pbf/planet-latest.osm.pbf`. (If you want to test the process quickly first, you can fake it by downloading a tiny, recent planet from geofabrik, for example Antarctica: `wget -O planet/planet.osm.pbf http://download.geofabrik.de/antarctica-latest.osm.pbf`.
 * edit `/extracts/script/split-current.py` and tweak `maxParallel` and `maxProcesses` to match the number of cores and memory size on your machine, see the inline documentation.
 
 use
