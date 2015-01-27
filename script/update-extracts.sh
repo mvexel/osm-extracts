@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# CHANGE THIS TO WHERE YOUR CLONED THIS REPO
 BASEDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )"/.. && pwd )
 
 # Add bin to path

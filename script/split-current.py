@@ -34,8 +34,8 @@ maxProcesses = 32
 # You should not need to change anything below this line.
 # -------------------------------------------------------
 
-if not len(sys.argv) == 2:
-    print("usage: split-current.py BASEDIR")
+if len(sys.argv) < 2:
+    print("usage: split-current.py BASEDIR [INFILE] [OUTDIR]")
     sys.exit(1)
 
 # the base directory we are working from 
@@ -46,11 +46,17 @@ splitterCommand = os.path.join(baseDir, 'bin/osm-history-splitter')
 # the directory to scan for clipbounds-files
 clipDir = os.path.join(baseDir, "poly")
 
-# the source file
-inputFile = os.path.join(baseDir, "planet/planet.osm.pbf")
+# the source file, defaults to planet/planet.osm.pbf
+if len(sys.argv) >= 3:
+    inputFile = sys.argv[2]
+else:
+    inputFile = os.path.join(baseDir, "planet/planet.osm.pbf")
 
 # the directory to place the generated extracts into
-outputDir = os.path.join(baseDir, "tmp/pbf")
+if len(sys.argv) >= 4:
+    outputDir = sys.argv[3]
+else:
+    outputDir = os.path.join(baseDir, "tmp/pbf")
 
 # the desired result datatype (.osm.pbf, .osh.pbf, .osm, .osh, ...)
 dataType = ".osm.pbf"
